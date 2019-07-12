@@ -29,16 +29,3 @@ public class MicroserviceOneApplication {
 
 }
 
-@RefreshScope
-@RestController
-class MessageRestController {
-	@Value("${message}")
-	private String message;
-	@RequestMapping("/settings")
-	String getMessage() throws Exception {
-		return message;
-	}
-
-
-}
-

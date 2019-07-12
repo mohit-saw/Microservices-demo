@@ -27,7 +27,7 @@ class MessageRestController {
 	private String message;
 	@Value("${spring.application.name}")
 	private String appName;
-	@RequestMapping("/settings")
+	@RequestMapping("/message")
 	String getMessage() throws Exception {
 		return message+" from "+appName;
 	}

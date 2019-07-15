@@ -1,4 +1,4 @@
-package com.siliconasiaworks.wowzademo.helpers;
+package com.siliconasiaworks.wowzademo.service;
 
 import com.wowza.cloudsdk.client.ApiClient;
 import com.wowza.cloudsdk.client.ApiException;
@@ -8,18 +8,20 @@ import com.wowza.cloudsdk.client.auth.ApiKeyAuth;
 import com.wowza.cloudsdk.client.model.LiveStream;
 import com.wowza.cloudsdk.client.model.LiveStreams;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class WowzaHelper {
-
-    private String accessKey = "Bw7EzHvrNG2tTqSGR0mAxT5XCFzpiakPua0i9RH30ajwbzR4ztyShZcj731p3447";
-
-    private String apiKey="mP0O0Y0F5SYELki8m4EavObjhx5x0zEaOoYBGRT1hwucZ5RSxygGYrzQRiiH3421";
-
+@Component
+@Service
+public class WowzaService {
+    @Value("${wowza.accesskey}")
+    private String accessKey;
+    @Value("${wowza.apikey}")
+    private String apiKey;
+    
     public LiveStream createWowzaStream(){
 
         ApiClient defaultClient = Configuration.getDefaultApiClient();
